@@ -1,0 +1,21 @@
+{
+  "name": "@adminforth/adminforth-key-value-adapter-ram",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && npm version patch",
+    "rollout": "npm run build && npm publish --access public",
+    "prepare": "npm link adminforth"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "adminforth": "^1.20.4",
+    "file-type": "^20.5.0",
+    "typescript": "^5.8.3"
+  }
+}
