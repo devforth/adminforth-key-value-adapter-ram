@@ -1,5 +1,5 @@
 {
-  "name": "@adminforth/adminforth-key-value-adapter-ram",
+  "name": "@adminforth/key-value-adapter-ram",
   "version": "1.0.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
