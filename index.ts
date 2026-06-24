@@ -47,6 +47,30 @@ export default class RAMKeyValueAdapter implements KeyValueAdapter {
 
     const limitedKeys = typeof limit === 'number' ? matchedKeys.slice(0, limit) : matchedKeys;
 
-    return limitedKeys.map((key) => ({ [key]: this.data.get(key) }));
+    const keyValuePairs: Record<string, string>[] = limitedKeys.map((key) => ({ [key]: this.data.get(key) }));
+
+    const keyValuePairsFiltered = keyValuePairs.filter((pair) => {
+      const key = Object.keys(pair)[0];
+      if (collection) {
+        return key.startsWith(`${collection}:`);
+      }
+      return true;
+    });
+
+    keyValuePairsFiltered.forEach((pair) => {
+      const key = Object.keys(pair)[0];
+      if (collection) {
+        const keyWithoutCollection = key.replace(`${collection}:`, '');
+        pair[keyWithoutCollection] = pair[key];
+        delete pair[key];
+      }
+    });
+
+    const result = keyValuePairsFiltered.filter((pair) => {
+      const key = Object.keys(pair)[0];
+      return key.startsWith(`${prefix}`);
+    });
+
+    return result;
   }
 }
