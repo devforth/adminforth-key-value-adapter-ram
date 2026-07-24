@@ -13,7 +13,7 @@
   "keywords": [],
   "author": "DevForth (https://devforth.io)",
   "license": "MIT",
-  "description": "",
+  "description": "AdminForth in-memory (RAM) key-value adapter.",
   "devDependencies": {
     "adminforth": "^3.0.1",
     "semantic-release": "^24.2.1",
@@ -50,5 +50,9 @@
         "prerelease": true
       }
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devforth/adminforth-key-value-adapter-ram.git"
   }
 }
